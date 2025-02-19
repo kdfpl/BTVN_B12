@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:object="${coSo}">
+  <label>Ma Co So <span th:text="*{ma}"></span></label><br/>
+
+  <label>Ma Tai Khoan Ngan Hang
+    <select th:field="*{taiKhoanNganHang}">
+      <option th:each="tk : ${listTK}" th:value="${tk.id}" th:text="${tk.ma}" th:selected="${tk.id == coSo.taiKhoanNganHang.id}"></option>
+    </select>
+  </label>
+
+  <label>SDT Co So <span th:text="*{soDienThoai}"></span></label><br/>
+
+  <label>Ghi Chu <span th:text="*{ghiChu}"></span></label><br/>
+
+  <label>Trang Thai
+    <input type="radio" th:field="*{trangThai}" th:value="1"/>Hoat dong
+    <input type="radio" th:field="*{trangThai}" th:value="0"/>Ngung hoat dong
+  </label><br/>
+</div>
+</body>
+</html>

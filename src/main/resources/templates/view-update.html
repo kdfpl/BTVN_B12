@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/co-so/update}" method="post" th:object="${coSo}">
+    <label>Id <input type="text" th:field="*{id}" readonly/></label><br/>
+    <label>Ma Co So
+        <input type="text" th:field="*{ma}"/>
+        <span th:errors="*{ma}"></span>
+    </label><br/>
+    <label>Ma Tai Khoan Ngan Hang
+        <select th:field="*{taiKhoanNganHang}">
+            <option th:each="tk : ${listTK}" th:value="${tk.id}" th:text="${tk.ma}"></option>
+        </select>
+    </label>
+    <label>SDT Co So
+        <input type="text" th:field="*{soDienThoai}"/>
+        <span th:errors="*{soDienThoai}"></span>
+    </label><br/>
+    <label>Ghi Chu
+        <input type="text" th:field="*{ghiChu}"/>
+        <span th:errors="*{ghiChu}"></span>
+    </label><br/>
+    <label>Trang Thai
+        <input type="radio" th:field="*{trangThai}" th:value="1"/>Hoat dong
+        <input type="radio" th:field="*{trangThai}" th:value="0"/>Ngung hoat dong
+    </label><br/>
+
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

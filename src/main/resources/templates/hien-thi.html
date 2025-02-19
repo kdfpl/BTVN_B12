@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Ma Co So</th>
+        <th>Ma Tai Khoan Ngan Hang</th>
+        <th>SDT Co So</th>
+        <th>Ghi Chu</th>
+        <th>Trang thai</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="coSo, i : ${listCoSo}">
+        <td th:text="${i.index + 1}"></td>
+        <td th:text="${coSo.ma}"></td>
+        <td th:text="${coSo.taiKhoanNganHang.ma}"></td>
+        <td th:text="${coSo.soDienThoai}"></td>
+        <td th:text="${coSo.ghiChu}"></td>
+        <td th:text="${coSo.trangThai}"></td>
+        <td>
+            <a th:href="@{/co-so/update/{id}(id=${coSo.id})}"></a>
+            <a th:href="@{/co-so/detail/{id}(id=${coSo.id})}"></a>
+            <a th:href="@{/co-so/delete/{id}(id=${coSo.id})}"></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
